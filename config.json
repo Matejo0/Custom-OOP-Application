@@ -1,0 +1,29 @@
+{
+    "characters": [
+      {
+        "name": "Liu Kang",
+        "health": 100,
+        "attack_power": 20
+      },
+      {
+        "name": "Sub-Zero",
+        "health": 100,
+        "attack_power": 18
+      },
+      {
+        "name": "Scorpion",
+        "health": 100,
+        "attack_power": 19
+      },
+      {
+        "name": "Sonya Blade",
+        "health": 100,
+        "attack_power": 17
+      },
+      {
+        "name": "Raiden",
+        "health": 100,
+        "attack_power": 21
+      }
+    ]
+  }
