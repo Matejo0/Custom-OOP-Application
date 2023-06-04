@@ -1,9 +1,25 @@
 import random
 import json
 import datetime
-from gamefunctions import Character
 
+class Character:
+    def __init__(self, name, health, attack_power):
+        self.name = name
+        self.health = health
+        self.attack_power = attack_power
 
+    def attack(self, opponent):
+        damage = random.randint(1, self.attack_power)
+        opponent.health -= damage
+        print(f"{self.name} zadaje {damage} obrażeń {opponent.name}!")
+
+    def dodge(self):
+        if random.randint(1,10) < 3:
+            print(f"{self.name} unika ataku przeciwnika!")
+            return True
+        else:
+            return False
+        
 class Game:
     def __init__(self):
         self.characters = []
@@ -12,7 +28,7 @@ class Game:
         self.log_file = None
 
     def load_characters_from_config(self):
-        with open("config.json", "r") as file:
+        with open("Custom-OOP-Application\config.json", "r") as file:
             data = json.load(file)
             self.characters = [
                 Character(character["name"], character["health"], character["attack_power"])
@@ -52,7 +68,6 @@ class Game:
             print(f"Zdrowie przeciwnika: {self.opponent.health}")
             self.write_to_log_file(f"\nTwoje zdrowie: {self.player.health}")
             self.write_to_log_file(f"Zdrowie przeciwnika: {self.opponent.health}")
-
 
             choice = input("\nWybierz akcję:\n1. Atak\n2. Unik\nWybór: ")
             if choice == "1":
